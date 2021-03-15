@@ -18,7 +18,7 @@ class Graph:
         for i in range(len(self.adjacency)):
             self.adjacency_len[i] = len(self.adjacency[i])
         # The next line will rank the nodes in the way that the algorithm must iterate through them
-        self.order = sorted(range(len(self.adjacency_len)), key=lambda k: (self.adjacency_len[k], -k), reverse=True)
+        self.order = sorted(range(len(self.adjacency_len)), key=lambda k : (self.adjacency_len[k], -k), reverse=True)
         # Pop the last element from the list, which is 0
         self.order.pop()
         # This list will have the correct order of the nodes
@@ -48,12 +48,13 @@ def graphColour(graph):
         nodes_colours[u] = selected_colour
  
     # Print colours
+    # For debuggin
     # for v in range(number_nodes):
     #     print("{}{}".format(v + 1, colours[nodes_colours[v + 1]]))
 
     return nodes_colours
 
-
+# Arguments for the input and output
 input_file = sys.argv[1]
 output_file = sys.argv[2]
 # Read input file and assign it in a list
@@ -84,6 +85,7 @@ with open(output_file, 'w') as f:
     sys.stdout = f
     for v in range(number_nodes):
         # If statement to get rid of the trailing newline at the end of the txt file
+        # Not sure if to add or not
         # if v == len(range(number_nodes))-1:
         #     print("{}{}".format(v + 1, colours[nodes_colours[v + 1]]), file = f, end='')
         #     break
